@@ -16,6 +16,8 @@ El sistema permite registrar, visualizar y administrar incidentes TI mediante un
 | Python | Lógica del backend |
 | Recharts | Dashboard y gráficas |
 | GitHub | Control de versiones |
+| Docker | Contenerización de servicios |
+| Docker Compose | Orquestación local de contenedores |
 
 # Funcionalidades
 
@@ -35,6 +37,8 @@ El sistema permite registrar, visualizar y administrar incidentes TI mediante un
 
 -Arquitectura separada en frontend y backend.
 
+-Ejecución mediante Docker y Docker Compose.
+
 # Arquitectura del sistema
 
 El sistema está dividido en tres componentes principales:
@@ -46,6 +50,12 @@ Base de datos PostgreSQL.
 La comunicación entre componentes se realiza mediante una API REST.
 
 ![Arquitectura](images/architecture.png)
+
+# Contenerización con Docker
+
+La aplicación fue contenerizada utilizando Docker y Docker Compose para ejecutar frontend, backend y base de datos en servicios independientes.
+
+![Docker](images/docker-running.png)
 
 # Estructura del proyecto
 
@@ -71,8 +81,11 @@ SecureWatch/
 │
 ├── .gitignore
 └── README.md
+├── docker-compose.yml
+├── Dockerfile
 
 #  Instalación y ejecución
+
 
 ## 1 Clonar el repositorio
 
@@ -82,46 +95,38 @@ git clone https://github.com/MariaFernandaN2/Proyecto-tendencias.git
 ## 2 Backend
 
 Ingresar a la carpeta backend:
-
--bash
 -cd backend
 
 Activar entorno virtual:
-
--bash
 -venv\Scripts\activate
 
 Ejecutar servidor FastAPI:
-
--bash
 -uvicorn main:app --reload
 
 ## 3 Frontend
 
 Ingresar a la carpeta frontend:
-
--bash
 -cd frontend
 
 Instalar dependencias:
-
--bash
 -npm install
 
 Ejecutar aplicación React:
-
--bash
 -npm run dev
 
 ## 4 Acceder al sistema
 
 Frontend:
-bash
 http://localhost:5173
 
 Backend:
-bash
 http://127.0.0.1:8000
+
+PostgreSQL → puerto 5432
+
+## 5 Ejecución con Docker
+
+docker compose up --build
 
 #  Estado del proyecto
 
@@ -137,6 +142,8 @@ http://127.0.0.1:8000
 
 -Frontend conectado con backend.
 
+-Docker y Docker Compose implementados.
+
 #  Mejoras futuras
 
 -Implementar autenticación de usuarios.
@@ -149,7 +156,7 @@ http://127.0.0.1:8000
 
 El desarrollo de SecureWatch permitió aplicar conocimientos relacionados con frontend, backend, bases de datos y arquitecturas modernas utilizando tecnologías actuales.
 
-Además, el proyecto permitió comprender la integración entre React, FastAPI y PostgreSQL mediante una arquitectura basada en servicios.
+Además, el proyecto permitió comprender la integración entre React, FastAPI y PostgreSQL mediante una arquitectura basada en contenedores y servicios.
 
 #  Autores
 
